@@ -1,0 +1,33 @@
+name: Testcafe Tests
+on: [push, pull_request]
+
+jobs:
+  testcafe:
+    name: Run Testcafe
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install Node.js dependencies
+        run: yarn install
+
+      - name: Start application
+        run: yarn run serve &
+
+      - name: Wait until application has started
+        run: yarn wait-on http://localhost:3000
+
+      - name: Run TestCafe Tests
+        uses: DevExpress/testcafe-action@latest
+        with:
+          args: chrome test/testcafe/tests

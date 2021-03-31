@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "yarn --cwd ../.. run serve & yarn --cwd ../.. wait-on http://localhost:3000 && testcafe chrome tests/"
+  },
+  "dependencies": {
+    "testcafe": "^1.13.0"
+  }
+}

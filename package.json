@@ -1,7 +1,6 @@
 {
   "name": "carvis-vue",
-  "version": "1.0.1",
-  "private": true,
+  "version": "0.1.0",
   "scripts": {
     "serve": "PORT=3000 vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -37,7 +36,8 @@
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.3.0",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.0"
+    "vuetify-loader": "^1.7.0",
+    "wait-on": "^5.3.0"
   },
   "eslintConfig": {
     "root": true,
