@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "yarn --cwd ../.. run serve & yarn --cwd ../.. wait-on http://localhost:3000 && testcafe chrome tests/"
+    "ci-test": "yarn --cwd ../.. run serve & yarn --cwd ../.. wait-on http://localhost:3000 && testcafe chrome tests/",
+    "test": "yarn --cwd ../.. run serve & yarn --cwd ../.. wait-on http://localhost:3000 && testcafe chrome tests/ --hostname localhost"
   },
   "dependencies": {
     "testcafe": "^1.13.0"
