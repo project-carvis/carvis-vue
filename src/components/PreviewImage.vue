@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import FullscreenImageModal from '../modals/FullscreenImageModal.vue'
+import FsLightbox from 'fslightbox-vue'
 import ImagePagination from './ImagePagination.vue'
 import { reloadImage } from '../service/image-service'
 import { captureError } from '../service/sentry-service'
@@ -56,7 +56,7 @@ import { captureError } from '../service/sentry-service'
 export default {
   name: 'PreviewImage',
   components: {
-    FullscreenImageModal,
+    FsLightbox,
     ImagePagination
   },
   props: {
@@ -117,6 +117,15 @@ export default {
     }
   },
   computed: {
+    ts() {
+      return [
+        'https://picsum.photos/200/300',
+        'https://picsum.photos/200/300',
+        'https://picsum.photos/200/300',
+        'https://picsum.photos/200/300',
+        'https://picsum.photos/200/300'
+      ]
+    },
     _src() {
       if (this.reloadedSrc) {
         return this.reloadedSrc

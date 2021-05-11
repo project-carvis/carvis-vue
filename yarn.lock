@@ -4366,6 +4366,13 @@ fsevents@~2.3.1:
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
 
+fslightbox-vue@^1.0.4, fslightbox-vue@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/fslightbox-vue/-/fslightbox-vue-1.2.0.tgz#0a81639b2f74fee191d86d4b2596ea407f7180eb"
+  integrity sha512-cOIF6SolpCFKM0l+e1JBPr7u5my9ZLRKtJOkQqny3xtzmI9aRhF5Ptrh1Nddi29aF7VeFgI+uaCaGb0y2um5NA==
+  dependencies:
+    fslightbox-vue "^1.0.4"
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
