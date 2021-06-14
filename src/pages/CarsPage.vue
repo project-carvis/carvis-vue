@@ -1,49 +1,33 @@
 <template>
   <v-container>
-    <span class="text-h2">Fahrzeuge</span>
-    <v-text-field
-      v-model="searchTerm"
-      prepend-icon="mdi-magnify"
-      placeholder="Porsche Carrera"
-      class="mt-12 mb-4"
-      outlined
-      clearable
-    />
-
-    <v-data-table
+    <OverviewTable
+      title="Fahrzeuge"
+      search-placeholder-text="Porsche Carrera"
       :headers="headers"
       :items="_cars"
-      :items-per-page="20"
       :loading="loading"
-      :mobile-breakpoint="0"
-      :search="searchTerm"
-      class="elevation-5"
-      @click:row="viewCar"
+      @row-clicked="viewCar"
+      @create-clicked="createCar"
     >
-      <template #[`item.preview`]="{ item }">
+      <template v-slot="item">
         <CarThumbnail
-          :image-id="item.previewImageId"
+          :image-id="item.proxiedProps.previewImageId"
         />
       </template>
-    </v-data-table>
-
-    <FloatingButton
-      :loading="loading"
-      @create="createCar"
-    />
+    </OverviewTable>
   </v-container>
 </template>
 
 <script>
 import ListCars from '../apollo/queries/ListCars'
-import FloatingButton from '../components/FloatingButton.vue'
 import CarThumbnail from '../components/CarThumbnail.vue'
+import OverviewTable from '../components/OverviewTable.vue'
 import { relativeTimeDifference } from '../utilities/time'
 
 export default {
   components: {
-    CarThumbnail,
-    FloatingButton
+    OverviewTable,
+    CarThumbnail
   },
   data () {
     return {

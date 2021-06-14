@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import authGuard from '../auth/authGuard'
-import CarsPage from '../pages/CarsPage'
+import HomePage from '../pages/HomePage'
 import goTo from 'vuetify/es5/services/goto'
 
 Vue.use(VueRouter)
@@ -9,11 +9,19 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    component: CarsPage,
+    component: HomePage,
+  },
+  {
+    path: '/cars',
+    component: () => import('../pages/CarsPage.vue')
   },
   {
     path: '/cars/add',
     component: () => import('../pages/CreateCarPage.vue')
+  },
+  {
+    path: '/requests',
+    component: () => import('../pages/RequestsPage.vue')
   },
   {
     path: '/forbidden',
@@ -49,7 +57,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/forbidden') next()
+  if (to.path === '/forbidden' || to.path === '/') next()
   else authGuard(to, from, next)
 })
 

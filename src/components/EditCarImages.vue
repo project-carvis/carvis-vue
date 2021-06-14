@@ -35,7 +35,7 @@ export default {
     imageIds: {
       type: Array,
       default: () => []
-    },
+    }
   },
   data() {
     return {

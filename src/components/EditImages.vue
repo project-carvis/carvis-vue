@@ -11,7 +11,7 @@
       >
         <v-card
           class="ma-4"
-          elevation="7"
+          elevation="5"
           width="200"
           outlined
         >

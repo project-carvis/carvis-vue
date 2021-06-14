@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <TheNavBar />
+    <TheNavBar
+      v-if="!isHomePage"
+    />
     <v-main>
       <div class="spacer" />
       <router-view />
@@ -17,12 +19,11 @@ export default {
   components: {
     TheNavBar,
     Snackbar
+  },
+  computed: {
+    isHomePage() {
+      return this.$route.path == '/'
+    }
   }
 }
 </script>
-
-<style scoped>
-.spacer {
-  padding-top: 50px;
-}
-</style>
